@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Showcase</title>
+    <link rel="stylesheet" href="s.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Add Items</h1>
+        <a href="index.html" id="Hom">Home</a>
+        <form id="item-form">
+            <input type="text" id="itemName" placeholder="Item Name" required>
+            <input type="number" id="itemPrice" placeholder="Item Price" required>
+            <select id="itemType" required>
+                <option value="Electronics">Electronics</option>
+                <option value="Clothing">Clothing</option>
+                <option value="Furniture">Furniture</option>
+            </select>
+            <button type="submit">Add Item</button>
+        </form>
+    </div>
+    <div class="showcase">
+        <h2>Item Showcase</h2>
+        <ul id="itemList"></ul>
+    </div>
+    <script src="ja.js"></script>
+</body>
+</html>

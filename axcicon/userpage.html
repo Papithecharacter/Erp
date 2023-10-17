@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+        }
+
+        .column {
+            padding: 20px;
+        }
+
+        .column.left {
+            flex: 1;
+            background-color: #f7f7f7;
+        }
+
+        .column.right {
+            flex: 1;
+            background-color: #f2f2f2;
+        }
+
+        select, button {
+            padding: 10px;
+            width: 100%;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        h2 {
+            background-color: #444;
+            color: #fff;
+            padding: 10px;
+            margin: 0;
+        }
+        h1{
+            display: inline-block;
+        }
+        #Hom{
+            text-decoration: none;
+        font-size: 30px;
+        color: rgb(255, 255, 255);
+        margin-left: 930px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome to Your User Page</h1>
+        <a href="index.html" id="Hom">Home</a>
+    </div>
+
+    <div class="container">
+        <div class="column left">
+            <h2>Vendor Options</h2>
+            <div class="vendor-options">
+                <label><input type="checkbox" value="vendor1"> Vendor 1</label><br>
+                <label><input type="checkbox" value="vendor2"> Vendor 2</label><br>
+                <label><input type="checkbox" value="vendor3"> Vendor 3</label><br>
+                <label><input type="checkbox" value="vendor4"> Vendor 4</label><br>
+                <label><input type="checkbox" value="vendor5"> Vendor 5</label><br>
+                <label><input type="checkbox" value="vendor6"> Vendor 6</label><br>
+                <label><input type="checkbox" value="vendor7"> Vendor 7</label>
+                <!-- Add more vendor options as needed -->
+            </div>
+            
+            <h2>Add to Cart</h2>
+            <div>
+                <p>Product Name: <span id="productName">Product 1</span></p>
+                <p>Price: $<span id="productPrice">10.00</span></p>
+                <button id="addToCartBtn">Add to Cart</button>
+            </div>
+        </div>
+        
+        <div class="column right">
+            <h2>Selected Vendor</h2>
+            <ul id="selectedItems"></ul>
+            <p>Total Price: $<span id="totalPrice">0.00</span></p>
+            <br><br><br>
+            <a href="order.html"><button id="addToCartBtn">Order Now </button></a>
+        </div>
+    </div>
+
+    <!-- JavaScript for handling user interactions (same as previous example) -->
+    <script>
+        const vendorOptions = document.querySelectorAll('.vendor-options input[type="checkbox"]');
+        const productName = document.getElementById('productName');
+        const productPrice = document.getElementById('productPrice');
+        const addToCartBtn = document.getElementById('addToCartBtn');
+        const selectedItemsList = document.getElementById('selectedItems');
+        const totalPrice = document.getElementById('totalPrice');
+        let cart = [];
+
+        // Handle adding to cart
+        addToCartBtn.addEventListener('click', () => {
+            const selectedVendor = Array.from(vendorOptions)
+                .filter(option => option.checked)
+                .map(option => option.value);
+
+            const item = productName.textContent;
+            const price = parseFloat(productPrice.textContent);
+
+            // Update the cart for each selected vendor
+            selectedVendor.forEach(vendor => {
+                cart.push({ vendor, item, price });
+
+                // Update the selected items list
+                const listItem = document.createElement('li');
+                listItem.textContent = `${item} from ${vendor} - $${price.toFixed(2)}`;
+                selectedItemsList.appendChild(listItem);
+            });
+
+            // Update the total price
+            const total = cart.reduce((acc, item) => acc + item.price, 0);
+            totalPrice.textContent = total.toFixed(2);
+        });
+    </script>
+</body>
+</html>

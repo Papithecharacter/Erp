@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> User Management </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+        #box{
+            background-color: #333;
+        }
+        h1 {
+            text-align: center;
+            
+            color: #fff;
+            padding: 20px;
+            display: inline-block;
+            
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            background-color: #444;
+            color: #fff;
+            padding: 10px;
+        }
+
+        .member-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .member-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .remove-button {
+            background-color: #ff6b6b;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .remove-button:hover {
+            background-color: #e04848;
+        }
+        #Hom{
+            text-decoration: none;
+        font-size: 30px;
+        color: rgb(255, 255, 255);
+        margin-left: 930px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+    <h1>User Management</h1>
+    <a href="index.html" id="Hom">Home</a>
+</div>
+    <div class="container">
+        <h2>Membership Members</h2>
+        <ul class="member-list" id="membershipMembers">
+            <!-- Member list will be populated here -->
+        </ul>
+        <input type="text" id="membershipName" placeholder="Enter Name">
+        <button onclick="addMembershipMember()">Add Member</button>
+
+        <h2>User Management Members</h2>
+        <ul class="member-list" id="userManagementMembers">
+            <!-- Member list will be populated here -->
+        </ul>
+        <input type="text" id="userManagementName" placeholder="Enter Name">
+        <button onclick="addUserManagementMember()">Add Member</button>
+    </div>
+
+    <script>
+        function addMembershipMember() {
+            const name = document.getElementById("membershipName").value;
+            if (name) {
+                const list = document.getElementById("membershipMembers");
+                const listItem = document.createElement("li");
+                listItem.innerHTML = `${name} <button class="remove-button" onclick="removeMember(this)">Remove</button>`;
+                list.appendChild(listItem);
+                document.getElementById("membershipName").value = "";
+            }
+        }
+
+        function addUserManagementMember() {
+            const name = document.getElementById("userManagementName").value;
+            if (name) {
+                const list = document.getElementById("userManagementMembers");
+                const listItem = document.createElement("li");
+                listItem.innerHTML = `${name} <button class="remove-button" onclick="removeMember(this)">Remove</button>`;
+                list.appendChild(listItem);
+                document.getElementById("userManagementName").value = "";
+            }
+        }
+
+        function removeMember(button) {
+            button.parentElement.remove();
+        }
+    </script>
+</body>
+</html>

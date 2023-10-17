@@ -1,0 +1,71 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Success</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        #box{
+            background-color: #333;
+        }
+        h1 {
+            text-align: center;
+            
+            color: #fff;
+            padding: 20px;
+            display: inline-block;
+        }
+
+        p {
+            text-align: center;
+            font-size: 24px;
+        }
+        h1{
+            display: inline-block;
+        }
+        #Reg{
+            text-decoration: none;
+        font-size: 30px;
+        color: rgb(255, 255, 255);
+        margin-left: 930px;
+    }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <h1>Order Success</h1>
+    <a href="index.html" id="Reg">Home</a>
+    
+    </div>
+    <div class="container">
+        <p>Thank you  </p>
+        <p>Your order has been successfully placed, and the total amount is $<span id="totalAmount">100.00</span>.</p>
+    </div>
+
+    <script>
+        // Retrieve user's name and total amount from URL parameters (or use data from a backend)
+        const urlParams = new URLSearchParams(window.location.search);
+        const userName = urlParams.get('name') || 'John Doe'; // Default to "John Doe" if not provided
+        const totalAmount = urlParams.get('total') || '100.00'; // Default to $100.00 if not provided
+
+        // Display the user's name and total amount on the page
+        document.getElementById('userName').textContent = userName;
+        document.getElementById('totalAmount').textContent = totalAmount;
+    </script>
+</body>
+</html>

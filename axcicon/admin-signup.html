@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<style>
+    #Reg{
+        text-decoration: none;
+        font-size: 20px;
+        border: 3px solid rgb(8, 116, 218);
+        color: rgb(255, 255, 255);
+        background-color: rgb(8, 116, 218);
+    }
+</style>
+<body>
+    <div class="container">
+        <h2>Sign Up</h2>
+        <form id="signup-form">
+            <label for="signup-category">Category:</label>
+            <select id="signup-category" name="signup-category">
+                <option value="Catering">Catering</option>
+                <option value="Florist">Florist</option>
+                <option value="Decoration">Decoration</option>
+                <option value="Lightning">Lightning</option>
+            </select>
+
+            <label for="signup-email">Email:</label>
+            <input type="email" id="signup-email" name="signup-email" required>
+
+            <label for="signup-password">Password:</label>
+            <input type="password" id="signup-password" name="signup-password" required>
+            <br>
+            <a href="adminpage.html" id="Reg">Register</a>
+            
+        </form>
+    </div>
+</body>
+</html>
